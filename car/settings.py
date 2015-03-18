@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'car',
+    'customer',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,9 +60,17 @@ WSGI_APPLICATION = 'car.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'car',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': 3306,
+        'OPTIONS': {
+		   'init_command': 'SET storage_engine=INNODB',
+		}
+    },
+    
 }
 
 # Internationalization
